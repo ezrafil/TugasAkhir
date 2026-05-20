@@ -6,4 +6,5 @@ $conn = mysqli_connect(
 "",
 "inventaris_sklh"
 );
+
 ?>
