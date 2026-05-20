@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: #f3f4f6;
+    padding: 20px;
+}
+
+/* container utama */
+.container{
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* judul */
+h2{
+    text-align: center;
+    margin-bottom: 15px;
+    color: #111827;
+    font-size: 20px;
+}
+
+/* label */
+label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #374151;
+    font-size: 14px;
+}
+
+/* input */
+input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+}
+
+/* tombol */
+button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #1d4ed8;
+}
+
+/* pesan sukses */
+.pesan{
+    background: #dcfce7;
+    color: #166534;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* tabel dashboard */
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+table th{
+    background: #e5e7eb;
+    padding: 8px;
+}
+
+table td{
+    padding: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+}
+
+/* link */
+a{
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* responsive HP */
+@media (max-width: 600px){
+    .container{
+        width: 100%;
+        padding: 15px;
+    }
+
+    h2{
+        font-size: 18px;
+    }
+
+    table{
+        font-size: 12px;
+    }
+}
