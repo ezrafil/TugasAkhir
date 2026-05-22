@@ -12,7 +12,17 @@ $pesan = "";
 if(isset($_POST['submit'])){
 
 $rfid = $_POST['rfid'];
-$nama = $_POST['nama'];
+
+$cari = mysqli_query($conn,
+"SELECT * FROM anggota
+WHERE rfid='$rfid'");
+
+$siswa = mysqli_fetch_array($cari);
+
+if($siswa){
+
+$nama = $siswa['nama'];
+
 $kode_barang = $_POST['kode_barang'];
 
 $cekBarang = mysqli_query($conn,
@@ -28,9 +38,9 @@ if($stok > 0){
 
 mysqli_query($conn,
 "INSERT INTO peminjaman
-(rfid,nama_peminjam,nama_barang,kode_barang,tanggal_pinjam,status,status_pinjam)
+(rfid,nama_peminjam,nama_barang,kode_barang,tanggal_pinjam,status_pinjam)
 VALUES
-('$rfid','$nama','$nama_barang','$kode_barang',NOW(),'Dipinjam','Dipinjam')");
+('$rfid','$nama','$nama_barang','$kode_barang',NOW(),'Dipinjam')");
 
 mysqli_query($conn,
 "UPDATE barang
@@ -42,6 +52,12 @@ $pesan = "Peminjaman berhasil";
 }else{
 
 $pesan = "Stok habis";
+
+}
+
+}else{
+
+$pesan = "RFID tidak terdaftar";
 
 }
 
@@ -76,14 +92,11 @@ $pesan = "Stok habis";
 
 <form method="POST">
 
-<label>RFID Siswa</label>
-<input type="text" name="rfid">
-
-<label>Nama Siswa</label>
-<input type="text" name="nama">
+<label>Scan RFID</label>
+<input type="text" name="rfid" required>
 
 <label>Scan Barcode Barang</label>
-<input type="text" name="kode_barang">
+<input type="text" name="kode_barang" required>
 
 <button type="submit" name="submit">
 Pinjam
